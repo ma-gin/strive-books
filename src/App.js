@@ -1,9 +1,8 @@
 import './App.css';
+import MyNav from "./components/MyNav"
+import Welcome from "./components/Welcome"
+import LatestRelease from "./components/LatestRelease"
 import MyFooter from './components/MyFooter'
-import Welcome from './components/Welcome'
-import MyNav from "./components/MyNav";
-import LatestRelease from './components/LatestRelease';
-
 
 function App() {
   return (

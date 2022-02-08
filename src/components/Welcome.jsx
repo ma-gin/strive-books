@@ -1,15 +1,20 @@
-import { Jumbotron, Button} from "react-bootstrap"
+import { Container, Jumbotron, Button} from "react-bootstrap"
 
 const Welcome = (props) => (
   <Jumbotron>
-    <h1>Hello, world!</h1>
-    <p>
-      This is a simple hero unit, a simple jumbotron-style component for calling
-      extra attention to featured content or information.
-    </p>
-    <p>
-      <Button variant="primary">Learn more</Button>
-    </p>
+    <Container>
+      <div className="d-flex justify-content-between">
+        <div>
+          <h1>Welcome to Strive Books</h1>
+          <p>Browse all the latest releases.</p>
+          <p>
+            <Button variant="primary">Learn more</Button>
+          </p>
+        </div>
+        <div className="jumbo-img">
+        </div>
+      </div>
+    </Container>
   </Jumbotron>
 )
 

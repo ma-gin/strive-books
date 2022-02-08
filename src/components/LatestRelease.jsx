@@ -5,7 +5,7 @@ const LastestRelease = (props) => (
     <Container>
         <Row>
             {books.map((book) => (
-                <Col xs={12} sm={6} md={4} lg={3} xl={2} key={book.asin}>
+                <Col xs={12} sm={6} md={4} lg={3} key={book.asin}>
                     <img
                         className='d-block w-100 my-2'
                         src={book.img}
