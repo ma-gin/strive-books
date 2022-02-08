@@ -1,9 +1,11 @@
-import { Container } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 
 
 const DisplayLatest = (props) => (
     <Container>
-        <p>Test 124</p>
+        <Row>
+            <Col></Col>
+        </Row>
     </Container>
 )
 
