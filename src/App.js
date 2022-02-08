@@ -1,10 +1,14 @@
 import './App.css';
+import MyFooter from './components/MyFooter'
 import MyNav from "./components/MyNav";
 
 
 function App() {
   return (
-    <MyNav bookstore="Strive Books"></MyNav>
+    <div>
+      <MyNav bookstore="Strive Books"></MyNav>
+      <MyFooter></MyFooter>
+    </div>
   );
 }
 
