@@ -1,14 +1,16 @@
 import './App.css';
 import MyFooter from './components/MyFooter'
-import MyJumbotron from './components/MyJumbotron'
+import Welcome from './components/Welcome'
 import MyNav from "./components/MyNav";
+import DisplayLatest from './components/LatestRelease';
 
 
 function App() {
   return (
     <div>
       <MyNav bookstore="Strive Books"></MyNav>
-      <MyJumbotron></MyJumbotron>
+      <Welcome></Welcome>
+      <DisplayLatest></DisplayLatest>
       <MyFooter></MyFooter>
     </div>
   );

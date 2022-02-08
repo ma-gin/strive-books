@@ -1,6 +1,6 @@
 import { Jumbotron, Button} from "react-bootstrap"
 
-const MyJumbotron = (props) => (
+const Welcome = (props) => (
   <Jumbotron>
     <h1>Hello, world!</h1>
     <p>
@@ -13,4 +13,4 @@ const MyJumbotron = (props) => (
   </Jumbotron>
 )
 
-export default MyJumbotron
+export default Welcome
