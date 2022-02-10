@@ -43,7 +43,7 @@ class CommentArea extends Component {
   render() {
     //   console.log(props.selectedBook)
     return (
-      <div className="my-3 mx-1 comment-style">
+      <div className="my-3 p-2 comment-style">
         <h2 className="comment-title">Comments</h2>
         {this.state.isLoading && (
           <Spinner animation="border" variant="success" className="mb-2" />

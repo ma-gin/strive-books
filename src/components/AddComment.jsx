@@ -1,7 +1,24 @@
-import { Form } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
+import { Component } from "react"
 
-const AddComment = () => {
-  return <Form>Hello There</Form>
+class AddComment extends Component {
+  state = {
+    newComment: "",
+  }
+
+  render() {
+    return (
+      <Form>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label className="ml-3">Post Comment</Form.Label>
+          <Form.Control type="email" placeholder="" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    )
+  }
 }
 
 export default AddComment
