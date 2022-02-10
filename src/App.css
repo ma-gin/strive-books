@@ -82,7 +82,7 @@ img {
 
 .card {
   background-color: rgba(255, 255, 255, 0.5);
-  height: 32rem;
+  min-height: 32rem;
   margin-bottom: 2rem;
   box-shadow: 0 0 9px 2px #313131a2;
 }
@@ -96,6 +96,21 @@ img {
   right: 3px;
   top: 3px;
   padding: 0.5rem;
+}
+.comment-style {
+  border: 1px solid rgba(128, 128, 128, 0.342);
+  border-radius: 5px;
+  background-color: white;
+}
+.comment-title {
+  padding-left: 1rem;
+  font-size: 1.6rem;
+}
+.comment {
+  margin-inline: 5px;
+  line-height: 2rem;
+  margin-bottom: 5px;
+  padding-left: 1rem;
 }
 
 .navbar {
