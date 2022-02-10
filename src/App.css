@@ -53,7 +53,10 @@ img {
   object-fit: cover;
   cursor: pointer;
 }
-
+.search-title {
+  font-size: 20px;
+  margin-left: 2px;
+}
 .card:hover img {
   object-fit: contain;
 }
@@ -71,6 +74,7 @@ img {
 }
 
 .card:hover {
+  border: none;
   cursor: pointer;
   box-shadow: none;
   background-color: transparent;
@@ -115,6 +119,7 @@ img {
 }
 
 .jumbotron h1 {
+  font-size: 3rem;
   font-family: "Quintessential", cursive;
 }
 
@@ -129,7 +134,7 @@ img {
 .jumbo-img {
   background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wrbh.org%2Fwp-content%2Fuploads%2F2015%2F06%2FBooks2.jpg&f=1&nofb=1);
   background-color: rgba(21, 24, 49, 0.65);
-  background-blend-mode: darken;
+  background-blend-mode: screen;
   background-position: 20% 20%;
   height: 200px;
   width: 500px;

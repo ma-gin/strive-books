@@ -11,8 +11,10 @@ class LatestRelease extends React.Component {
       <Container>
         <Row>
           <Col>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Search</Form.Label>
+            <Form.Group controlId="formBasicEmail" className="mb-5">
+              <Form.Label className="search-title">
+                Search Our Latest Releases
+              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Search"
