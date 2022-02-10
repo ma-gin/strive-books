@@ -2,7 +2,7 @@
 import { Component } from "react"
 import { ListGroup, Spinner, Alert } from "react-bootstrap"
 import Comment from "./Comment"
-// This component will receive as a prop one pasta object or null
+import AddComment from "./AddComment"
 
 class CommentArea extends Component {
   state = {
@@ -61,6 +61,7 @@ class CommentArea extends Component {
             <Comment key={comment._id} comment={comment.comment} />
           ))}
         </ListGroup>
+        <AddComment />
       </div>
     )
   }
