@@ -24,7 +24,6 @@ class CommentArea extends Component {
       })
       if (response.ok) {
         let data = await response.json()
-        // console.log(data)
         this.setState({
           comments: data,
           isLoading: false,

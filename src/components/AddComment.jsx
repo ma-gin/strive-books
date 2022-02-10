@@ -12,6 +12,10 @@ class AddComment extends Component {
     console.log(bookAsin)
   }
 
+  handleClick = (e) => {
+    e.stopPropagation()
+    console.log("wow!")
+  }
   handleSumbit = async (e) => {
     e.preventDefaul()
 
@@ -63,7 +67,7 @@ class AddComment extends Component {
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="ml-3">Post Comment</Form.Label>
-          <Form.Control onClick={false} type="text" placeholder="" />
+          <Form.Control onClick={this.handleClick} type="text" placeholder="" />
         </Form.Group>
         <Button className="w-100" variant="primary" type="submit">
           Submit

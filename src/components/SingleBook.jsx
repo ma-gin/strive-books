@@ -19,10 +19,10 @@ class SingleBook extends React.Component {
         <Card.Body className="d-flex flex-column align-items-center book-title">
           <Card.Title>{this.props.book.title}</Card.Title>
           <PriceBadge color="success" text={this.props.book.price} />
-          {this.state.selectedBook && (
-            <CommentArea selectedBook={this.props.book} />
-          )}
         </Card.Body>
+        {this.state.selectedBook && (
+          <CommentArea selectedBook={this.props.book} />
+        )}
       </Card>
     )
   }
