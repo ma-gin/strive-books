@@ -60,7 +60,12 @@ img {
 
 .card:hover .book-title {
   margin-top: 2px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 252, 196, 0.25) 0%,
+    rgba(110, 93, 165, 0.25) 49%,
+    rgba(42, 47, 87, 0.25) 100%
+  );
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
@@ -76,11 +81,17 @@ img {
   height: 32rem;
   margin-bottom: 2rem;
   box-shadow: 0 0 9px 2px #313131a2;
-  transition: all 150ms;
 }
 
 .book-title {
   position: relative;
+}
+
+.badge {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  padding: 0.5rem;
 }
 
 .navbar {
