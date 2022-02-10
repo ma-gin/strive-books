@@ -1,4 +1,4 @@
-import { Container, Jumbotron, Button} from "react-bootstrap"
+import { Container, Jumbotron, Button } from "react-bootstrap"
 
 const Welcome = (props) => (
   <Jumbotron>
@@ -8,11 +8,12 @@ const Welcome = (props) => (
           <h1>Welcome to Strive Books</h1>
           <p>Browse all the latest releases.</p>
           <p>
-            <Button variant="primary">Learn more</Button>
+            <Button className="learn-btn" variant="primary">
+              Learn more
+            </Button>
           </p>
         </div>
-        <div className="jumbo-img">
-        </div>
+        <div className="jumbo-img"></div>
       </div>
     </Container>
   </Jumbotron>

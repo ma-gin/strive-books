@@ -119,6 +119,14 @@ img {
   margin-bottom: 5px;
   padding: 5px 1rem 5px 1rem;
 }
+.btn {
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 5px !important;
+}
+.learn-btn {
+  width: 160px !important;
+}
 
 .navbar {
   background: linear-gradient(
