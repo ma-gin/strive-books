@@ -1,20 +1,41 @@
-import { Container, Row, Col } from "react-bootstrap"
-import books from "../data/romance.json"
+import { Container, Row, Col, Form } from "react-bootstrap"
+import React from "react"
+import SingleBook from "./SingleBook"
 
-const LastestRelease = (props) => (
-    <Container>
+class LatestRelease extends React.Component {
+  state = {
+    searchInput: "",
+  }
+  render() {
+    return (
+      <Container>
         <Row>
-            {books.map((book) => (
-                <Col xs={12} sm={6} md={4} lg={3} key={book.asin}>
-                    <img
-                        className='d-block w-100 my-2'
-                        src={book.img}
-                        alt={book.title}                             
-                    />
-                </Col>
+          <Col>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Search</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                value={this.state.searchInput}
+                onChange={(e) => this.setState({ searchInput: e.target.value })}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          {this.props.books
+            .filter((element) =>
+              element.title.toLowerCase().includes(this.state.searchInput)
+            )
+            .map((element) => (
+              <Col xs={3} key={element.asin}>
+                <SingleBook book={element} />
+              </Col>
             ))}
         </Row>
-    </Container>
-)
+      </Container>
+    )
+  }
+}
 
-export default LastestRelease
+export default LatestRelease

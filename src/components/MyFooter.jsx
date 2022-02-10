@@ -3,7 +3,7 @@ import { Container, Row, Col, Nav} from "react-bootstrap"
 const MyFooter = () => (
   <Container>
     <Row>
-      <Col xs={12} md={6}>
+      <Col xs={12} md={6} className="d-flex w-50 mx-auto my-5 my-footer">
         <Nav.Link href="#">Home</Nav.Link>
         <Nav.Link href="#">About</Nav.Link>
         <Nav.Link href="#">Browse</Nav.Link>
