@@ -1,78 +1,92 @@
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Alert } from "react-bootstrap"
 import { Component } from "react"
 
 class AddComment extends Component {
   state = {
-    newComment: "",
-    bookAsin: [],
+    comment: {
+      comment: "",
+      rate: "5",
+      elementId: this.props.id,
+    },
+    submit: false,
   }
-  componentDidMount = (props) => {
-    const bookAsin = this.state.bookAsin
-    const baseURL = "https://striveschool-api.herokuapp.com/api/comments/"
-    console.log(bookAsin)
+
+  handleChange = (property, value) => {
+    this.setState({
+      ...this.state,
+      comment: {
+        ...this.state.comment,
+        [property]: value,
+      },
+    })
   }
 
   handleClick = (e) => {
     e.stopPropagation()
-    console.log("wow!")
   }
+
   handleSumbit = async (e) => {
-    e.preventDefaul()
+    e.stopPropagation()
+    e.preventDefault()
 
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments",
+        "https://striveschool-api.herokuapp.com/api/comments/",
         {
           method: "POST",
-          body: JSON.stringify(this.state.reservation),
+          body: JSON.stringify(this.state.comment),
           headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
             "Content-type": "application/json",
           },
         }
       )
       if (response.ok) {
-        console.log(response)
-        alert("reservation saved!")
+        this.setState({ submit: true })
         this.setState({
-          reservation: {
-            name: "",
-            phone: "",
-            numberOfPeople: 1,
-            smoking: false,
-            dateTime: "",
-            specialRequests: "",
+          ...this.state,
+          comment: {
+            ...this.setState({ comment: "" }),
           },
         })
       } else {
-        // what type of error will fall here?
-        // here it means you connected to the server, but something went wrong!
-        alert("something went wrong! please try again")
-        // just some examples...
+        alert("An error occured! :(")
         if (response.status === 400) {
-          alert("some data was wrong")
+          alert("Data Error")
         }
         if (response.status === 404) {
-          alert("not found")
+          alert("Not Found")
         }
       }
     } catch (error) {
-      // what type of error will fall here?
-      // you probably have some internet problems :(
       console.log(error)
     }
   }
 
   render() {
     return (
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label className="ml-3">Post Comment</Form.Label>
-          <Form.Control onClick={this.handleClick} type="text" placeholder="" />
-        </Form.Group>
-        <Button className="w-100" variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+      <>
+        <Form onSubmit={this.handleSumbit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label className="ml-3">Post Comment</Form.Label>
+            <Form.Control
+              onClick={this.handleClick}
+              onChange={(e) => this.handleChange("comment", e.target.value)}
+              type="text"
+              placeholder=""
+            />
+          </Form.Group>
+          <Button
+            onClick={this.handleSumbit}
+            className="w-100"
+            variant="primary"
+            type="submit">
+            Submit
+          </Button>
+        </Form>
+        {this.state.submit && <Alert variant="success">Comment posted</Alert>}
+      </>
     )
   }
 }

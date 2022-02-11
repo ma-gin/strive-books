@@ -60,7 +60,7 @@ class CommentArea extends Component {
             <Comment key={comment._id} comment={comment.comment} />
           ))}
         </ListGroup>
-        <AddComment />
+        <AddComment id={this.props.selectedBook.asin} />
       </div>
     )
   }
