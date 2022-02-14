@@ -25,15 +25,22 @@ class LatestRelease extends React.Component {
           </Col>
         </Row>
         <Row>
-          {this.props.books
-            .filter((element) =>
-              element.title.toLowerCase().includes(this.state.searchInput)
-            )
-            .map((element) => (
-              <Col xs={3} key={element.asin}>
-                <SingleBook book={element} />
-              </Col>
-            ))}
+          <Col xs={12} sm={9} md={8} lg={7}>
+            <Container>
+              <Row>
+                {this.props.books
+                  .filter((element) =>
+                    element.title.toLowerCase().includes(this.state.searchInput)
+                  )
+                  .map((element) => (
+                    <Col xs={6} key={element.asin}>
+                      <SingleBook book={element} />
+                    </Col>
+                  ))}
+              </Row>
+            </Container>
+          </Col>
+          <Col></Col>
         </Row>
       </Container>
     )

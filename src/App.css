@@ -49,12 +49,12 @@ body {
 }
 
 img {
-  height: 22rem;
+  height: 18rem;
   object-fit: cover;
   cursor: pointer;
 }
 .search-title {
-  font-size: 20px;
+  font-size: 26px;
   margin-left: 2px;
 }
 .card:hover img {
@@ -86,9 +86,12 @@ img {
 
 .card {
   background-color: rgba(255, 255, 255, 0.5);
-  min-height: 32rem;
+  height: 28rem;
   margin-bottom: 2rem;
   box-shadow: 0 0 9px 2px #313131a2;
+}
+.card-title {
+  font-size: 14px;
 }
 
 .book-title {
