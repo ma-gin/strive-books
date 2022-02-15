@@ -11,7 +11,6 @@ class SingleBook extends React.Component {
     return (
       <Card
         onClick={() => {
-          console.log("test")
           this.props.changeSelected(this.props.book.asin)
         }}>
         <Card.Img variant="top" src={this.props.book.img} />

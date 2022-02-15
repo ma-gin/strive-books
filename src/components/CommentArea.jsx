@@ -1,7 +1,5 @@
-// import { Modal, Button } from "react-bootstrap"
 import { Component } from "react"
 import { ListGroup, Spinner, Alert } from "react-bootstrap"
-// import Comment from "./Comment"
 import AddComment from "./AddComment"
 
 const Comment = ({ comment }) => {
@@ -17,7 +15,7 @@ class CommentArea extends Component {
 
   componentDidUpdate = async (prevProps) => {
     if (prevProps.selectedBook !== this.props.selectedBook) {
-      console.log(this.props.selectedBook)
+      // console.log(this.props.selectedBook)
       const bookAsin = this.props.selectedBook
       const baseURL = "https://striveschool-api.herokuapp.com/api/comments/"
 
@@ -47,7 +45,6 @@ class CommentArea extends Component {
   }
 
   render() {
-    // console.log(this.props.selectedBook)
     if (!this.props.selectedBook) return null
     return (
       <div className="my-3 p-2 comment-style">
