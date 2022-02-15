@@ -1,11 +1,21 @@
 import { Container, Row, Col, Form } from "react-bootstrap"
 import React from "react"
 import SingleBook from "./SingleBook"
+import CommentArea from "./CommentArea"
 
 class LatestRelease extends React.Component {
   state = {
     searchInput: "",
+    selectedBook: undefined,
+    // asin: undefined,
   }
+
+  // selectBook = () => {
+  //   console.log("working")
+  //   this.setState({ selectedBook: !this.state.selectedBook })
+  //   console.log(this.state.asin)
+  // }
+
   render() {
     return (
       <Container>
@@ -33,14 +43,22 @@ class LatestRelease extends React.Component {
                     element.title.toLowerCase().includes(this.state.searchInput)
                   )
                   .map((element) => (
-                    <Col xs={6} key={element.asin}>
-                      <SingleBook book={element} />
+                    <Col xs={12} sm={6} xl={4} key={element.asin}>
+                      <SingleBook
+                        changeSelected={(asin) =>
+                          this.setState({ selectedBook: asin })
+                        }
+                        selectedBook={this.state.selectedBook}
+                        book={element}
+                      />
                     </Col>
                   ))}
               </Row>
             </Container>
           </Col>
-          <Col></Col>
+          <Col>
+            <CommentArea selectedBook={this.state.selectedBook} />
+          </Col>
         </Row>
       </Container>
     )
