@@ -1,8 +1,12 @@
 // import { Modal, Button } from "react-bootstrap"
 import { Component } from "react"
 import { ListGroup, Spinner, Alert } from "react-bootstrap"
-import Comment from "./Comment"
+// import Comment from "./Comment"
 import AddComment from "./AddComment"
+
+const Comment = ({ comment }) => {
+  return <p className="comment comment-style">{comment}</p>
+}
 
 class CommentArea extends Component {
   state = {
