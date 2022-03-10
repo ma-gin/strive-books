@@ -9,7 +9,7 @@ const Welcome = (props) => (
           <p>Browse all the latest releases.</p>
           <p>
             <Button className="learn-btn" variant="primary">
-              Learn more
+              Sign Up
             </Button>
           </p>
         </div>

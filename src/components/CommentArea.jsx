@@ -3,7 +3,12 @@ import { ListGroup, Spinner, Alert } from "react-bootstrap"
 import AddComment from "./AddComment"
 
 const Comment = ({ comment }) => {
-  return <p className="comment comment-style">{comment}</p>
+  return (
+    <div className="comment comment-style inline d-flex justify-content between ">
+      <div className="mr-auto">{comment}</div>
+      <button className="inline btn-danger bold btn-del">X</button>
+    </div>
+  )
 }
 
 class CommentArea extends Component {
@@ -14,16 +19,14 @@ class CommentArea extends Component {
   }
 
   componentDidUpdate = async (prevProps) => {
-    if (prevProps.selectedBook !== this.props.selectedBook) {
-      // console.log(this.props.selectedBook)
-      const bookAsin = this.props.selectedBook
-      const baseURL = "https://striveschool-api.herokuapp.com/api/comments/"
-
+    const { REACT_APP_TOKEN } = process.env
+    const bookAsin = this.props.selectedBook
+    const baseURL = "https://striveschool-api.herokuapp.com/api/comments/"
+    if (this.state.isLoading) {
       try {
         let response = await fetch(baseURL + bookAsin, {
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
+            Authorization: `Bearer ${REACT_APP_TOKEN}`,
           },
         })
         if (response.ok) {
@@ -35,6 +38,29 @@ class CommentArea extends Component {
         } else {
           this.setState({
             isLoading: false,
+            isError: true,
+          })
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    if (prevProps.selectedBook !== this.props.selectedBook) {
+      try {
+        let response = await fetch(baseURL + bookAsin, {
+          headers: {
+            Authorization: `Bearer ${REACT_APP_TOKEN}`,
+          },
+        })
+        if (response.ok) {
+          let data = await response.json()
+          this.setState({
+            comments: data,
+            // isLoading: false,
+          })
+        } else {
+          this.setState({
+            // isLoading: false,
             isError: true,
           })
         }
@@ -65,7 +91,12 @@ class CommentArea extends Component {
             <Comment key={comment._id} comment={comment.comment} />
           ))}
         </ListGroup>
-        <AddComment id={this.props.selectedBook} />
+        <AddComment
+          id={this.props.selectedBook}
+          setIsLoading={() => {
+            this.setState({ isLoading: true })
+          }}
+        />
       </div>
     )
   }

@@ -6,7 +6,7 @@ import CommentArea from "./CommentArea"
 class LatestRelease extends React.Component {
   state = {
     searchInput: "",
-    selectedBook: undefined,
+    asin: undefined,
     // asin: undefined,
   }
 
@@ -45,10 +45,8 @@ class LatestRelease extends React.Component {
                   .map((element) => (
                     <Col xs={12} sm={6} xl={4} key={element.asin}>
                       <SingleBook
-                        changeSelected={(asin) =>
-                          this.setState({ selectedBook: asin })
-                        }
-                        selectedBook={this.state.selectedBook}
+                        changeSelected={(asin) => this.setState({ asin: asin })}
+                        selectedBook={this.state.asin}
                         book={element}
                       />
                     </Col>
@@ -57,7 +55,7 @@ class LatestRelease extends React.Component {
             </Container>
           </Col>
           <Col>
-            <CommentArea selectedBook={this.state.selectedBook} />
+            <CommentArea selectedBook={this.state.asin} />
           </Col>
         </Row>
       </Container>

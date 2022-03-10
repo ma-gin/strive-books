@@ -10,6 +10,15 @@ class AddComment extends Component {
     },
     submit: false,
   }
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      comment: {
+        ...this.state.comment,
+        elementId: this.props.id,
+      },
+    })
+  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.id !== this.props.id) {
@@ -61,14 +70,20 @@ class AddComment extends Component {
         )
         if (response.ok) {
           this.setState({ submit: true })
+          setTimeout(() => {
+            this.setState({ submit: false })
+          }, 2000)
+          this.props.setIsLoading()
           this.setState({
-            ...this.state,
+            ...this.state, //question
             comment: {
-              ...this.setState({ comment: "" }),
+              ...this.state.comment,
+              comment: "",
             },
           })
           this.myFormRef.reset()
         } else {
+          this.myFormRef.reset()
           alert("An error occured!")
           if (response.status === 400) {
             alert("Data Error")
@@ -84,7 +99,7 @@ class AddComment extends Component {
   }
 
   render() {
-    console.log(this.state.comment)
+    // console.log(this.state.comment)
     return (
       <>
         <Form onSubmit={this.handleSumbit} ref={(el) => (this.myFormRef = el)}>
