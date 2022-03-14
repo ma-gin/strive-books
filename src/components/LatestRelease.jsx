@@ -39,15 +39,15 @@ class LatestRelease extends React.Component {
             <Container>
               <Row>
                 {this.props.books
-                  .filter((element) =>
-                    element.title.toLowerCase().includes(this.state.searchInput)
+                  .filter((book) =>
+                    book.title.toLowerCase().includes(this.state.searchInput)
                   )
-                  .map((element) => (
-                    <Col xs={12} sm={6} xl={4} key={element.asin}>
+                  .map((book) => (
+                    <Col xs={12} sm={6} xl={4} key={book.asin}>
                       <SingleBook
                         changeSelected={(asin) => this.setState({ asin: asin })}
                         selectedBook={this.state.asin}
-                        book={element}
+                        book={book}
                       />
                     </Col>
                   ))}

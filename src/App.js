@@ -1,22 +1,19 @@
 import "./App.css"
-import MyNav from "./components/MyNav"
-import Welcome from "./components/Welcome"
-import LatestRelease from "./components/LatestRelease"
-import MyFooter from "./components/MyFooter"
-import books from "./data/romance.json"
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navigation from "./components/main/Navigation"
+import { Routes, Route } from "react-router-dom"
+import Home from "./components/views/Home"
+import Footer from "./components/main/Footer"
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+      <Navigation bookstore="Strive Books"></Navigation>
       <Routes>
-        <Route path="/registration"/>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/registration" />
       </Routes>
-      <MyNav bookstore="Strive Books"></MyNav>
-      <Welcome></Welcome>
-      <LatestRelease books={books}></LatestRelease>
-      <MyFooter></MyFooter>
-    </BrowserRouter>
+      <Footer></Footer>
+    </>
   )
 }
 

@@ -22,7 +22,6 @@ class AddComment extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.id !== this.props.id) {
-      console.log(this.state)
       this.setState({
         ...this.state,
         comment: {
@@ -48,10 +47,7 @@ class AddComment extends Component {
   }
 
   handleSumbit = async (e) => {
-    console.log(this.state.comment)
     if (this.state.comment.comment !== "") {
-      console.log(this.state.comment.elementId)
-
       e.stopPropagation()
       e.preventDefault()
 
@@ -62,8 +58,7 @@ class AddComment extends Component {
             method: "POST",
             body: JSON.stringify(this.state.comment),
             headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZlZTc1NTllNzcxNjAwMTUzYTgwMjEiLCJpYXQiOjE2NDQwOTUzMTcsImV4cCI6MTY0NTMwNDkxN30.8Ssl3Nnftqadb6oAn8kI3oKkdVUvc51ajCi2-9nmQgE",
+              Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
               "Content-type": "application/json",
             },
           }
@@ -75,7 +70,7 @@ class AddComment extends Component {
           }, 2000)
           this.props.setIsLoading()
           this.setState({
-            ...this.state, //question
+            ...this.state,
             comment: {
               ...this.state.comment,
               comment: "",
@@ -99,7 +94,6 @@ class AddComment extends Component {
   }
 
   render() {
-    // console.log(this.state.comment)
     return (
       <>
         <Form onSubmit={this.handleSumbit} ref={(el) => (this.myFormRef = el)}>

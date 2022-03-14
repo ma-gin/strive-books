@@ -122,12 +122,18 @@ img {
   margin-inline: 5px;
   line-height: 1.4rem;
   margin-bottom: 5px;
-  padding: 5px 1rem 5px 1rem;
+  padding: 5px 5px 5px 1rem;
 }
 .btn {
   width: 100px;
   margin: 0 auto;
   margin-top: 5px !important;
+}
+.btn {
+  letter-spacing: 2px;
+  background: rgba(16, 252, 196, 0.65);
+  border: 2px solid rgba(42, 47, 87, 0.65);
+  color: black;
 }
 .learn-btn {
   width: 160px !important;
@@ -157,15 +163,6 @@ img {
   font-size: 2.6rem;
   font-family: "Quintessential", cursive;
 }
-
-.btn {
-  margin-top: 3rem;
-  letter-spacing: 2px;
-  background: rgba(16, 252, 196, 0.65);
-  border: 2px solid rgba(42, 47, 87, 0.65);
-  color: black;
-}
-
 .jumbo-img {
   background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wrbh.org%2Fwp-content%2Fuploads%2F2015%2F06%2FBooks2.jpg&f=1&nofb=1);
   background-color: rgba(21, 24, 49, 0.65);
@@ -187,9 +184,15 @@ img {
 }
 
 .btn-del {
+  color: #a71f2b !important;
   width: fit-content;
   margin-top: 0;
-  background: #740d16;
+  background: transparent;
   border-radius: 4px;
-  border: none;
+  border: 1px solid #a71f2b;
+}
+
+.cm-spinner {
+  width: fit-content;
+  margin: 0 auto;
 }
