@@ -7,14 +7,8 @@ class LatestRelease extends React.Component {
   state = {
     searchInput: "",
     asin: undefined,
-    // asin: undefined,
+    selected: false,
   }
-
-  // selectBook = () => {
-  //   console.log("working")
-  //   this.setState({ selectedBook: !this.state.selectedBook })
-  //   console.log(this.state.asin)
-  // }
 
   render() {
     return (

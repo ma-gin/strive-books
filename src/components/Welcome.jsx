@@ -1,4 +1,5 @@
 import { Container, Jumbotron, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const Welcome = (props) => (
   <Jumbotron>
@@ -9,7 +10,9 @@ const Welcome = (props) => (
           <p>Browse all the latest releases.</p>
           <p>
             <Button className="learn-btn" variant="primary">
-              Sign Up
+              <Link to="/sign-up" className="white">
+                Sign Up
+              </Link>
             </Button>
           </p>
         </div>

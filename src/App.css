@@ -128,10 +128,8 @@ img {
   width: 100px;
   margin: 0 auto;
   margin-top: 5px !important;
-}
-.btn {
   letter-spacing: 2px;
-  background: rgba(16, 252, 196, 0.65);
+  background: rgba(110, 93, 165, 1);
   border: 2px solid rgba(42, 47, 87, 0.65);
   color: black;
 }
@@ -195,4 +193,14 @@ img {
 .cm-spinner {
   width: fit-content;
   margin: 0 auto;
+}
+
+.signup {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.white {
+  color: white;
+  font-weight: bold;
 }

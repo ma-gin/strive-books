@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { ListGroup, Spinner, Alert } from "react-bootstrap"
+import { ListGroup, Alert } from "react-bootstrap"
 import AddComment from "./AddComment"
 
 const baseURL = "https://striveschool-api.herokuapp.com/api/comments/"
