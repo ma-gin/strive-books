@@ -204,3 +204,8 @@ img {
   color: white;
   font-weight: bold;
 }
+
+.book-card {
+  min-width: 200px;
+  width: 10vw;
+}

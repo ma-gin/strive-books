@@ -10,6 +10,7 @@ class SingleBook extends React.Component {
   render() {
     return (
       <Card
+        className="mr-3 book-card"
         onClick={() => {
           this.props.changeSelected(this.props.book.asin)
         }}>
